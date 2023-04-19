@@ -1,0 +1,28 @@
+
+Enemy character stored in a thread made with text, displayed with PNG image (High priority)
+
+
+ability to pick up items and store them in inventory with the mouse
+
+
+
+
+Buttons that you can press to open doors
+
+Bar that you can enter and talk to the shopkeeper that sells you things
+
+Ability to dig holes in the ground with a shovel to uncover hidden items
+
+
+
+
+
+
+
+
+
+
+
+Completed:
+
+Play midi music on it's own thread
