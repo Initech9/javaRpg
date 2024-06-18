@@ -5,7 +5,8 @@ public class Player {
 
     char direction = 'n';
 
-
+int playerX;
+int playerY;
 
     public Player() {
 

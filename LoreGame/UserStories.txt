@@ -1,0 +1,45 @@
+User Story #1: Text file that has all the rooms that are walkable.
+
+Description: Boolean map of walkable rooms
+Very simple, will only be a boolean x,y grid map that has a 1 or 0 
+to let the player on a walkable map area. N,S,E,W 
+
+If N is true, then player can walk north
+If S is true, then player can walk South
+If W is true, then player can walk West
+
+Room.txt
+
+Priority: Highest #1
+Difficulty: Low
+
+
+*******************************************
+User Story #2: Button that opens a door to a grid location
+Description:
+Button will be a small square that can be clicked on
+Priority: Highest #2
+Difficulty: Moderate
+
+
+
+
+*******************************************
+User Story #3: Items that can drop or picked up
+
+
+
+*******************************************
+User Story #4: Enemy that can attack
+
+
+*******************************************
+User Story #5: Inventory that can store dropped Items
+
+*******************************************
+User Story #6: Player model where you can equip inventory Items
+
+*******************************************
+User Story #7: NPC Dialog item option
+
+*******************************************

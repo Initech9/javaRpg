@@ -1,3 +1,6 @@
+ANIMATED characters that walk smoothly to each room! (Highest priority)
+
+
 
 Enemy character stored in a thread made with text, displayed with PNG image (High priority)
 

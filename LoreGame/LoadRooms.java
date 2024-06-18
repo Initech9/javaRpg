@@ -24,7 +24,9 @@ public class LoadRooms {
         room[2][0] = new Room();
         room[2][1] = new Room();
         room[2][2] = new Room();
-  
+
+
+
         room[0][0].northWall = 7;
         room[0][1].northWall = 0;
         room[0][2].northWall = 0;
@@ -34,6 +36,9 @@ public class LoadRooms {
         room[2][0].northWall = 9;
         room[2][1].northWall = 0;
         room[2][2].northWall = 0;
+
+
+
   
         room[0][0].eastWall = 0;
         room[0][1].eastWall = 0;

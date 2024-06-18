@@ -11,7 +11,7 @@ public class Room {
     public BufferedImage gui;
     public BufferedImage charTemp;
 
-    public Character character[] = new Character[3];
+    //public Character character[] = new Character[3];
 
     public int northWall = 0;
     public int southWall = 0;
@@ -81,14 +81,15 @@ public class Room {
             floorImage[9] = ImageIO.read(new File("floor9z.png"));
 
 
-            charTemp = ImageIO.read(new File("bard.png"));
-            character[0] = new Character( charTemp, 0, 0);
-            charTemp = ImageIO.read(new File("bartender.png"));
-            character[1] = new Character( charTemp, 2, 1);
-            charTemp = ImageIO.read(new File("jester.png"));
-            character[2] = new Character( charTemp, 1, 2);
+            // charTemp = ImageIO.read(new File("bard.png"));
+            // character[0] = new Character( charTemp, 0, 0);
+            // charTemp = ImageIO.read(new File("bartender.png"));
+            // character[1] = new Character( charTemp, 2, 1);
+            // charTemp = ImageIO.read(new File("jester.png"));
+            // character[2] = new Character( charTemp, 1, 2);
 
             
+            //character[2].movement = true;
 
 
             // northWall = images[0];
