@@ -21,6 +21,7 @@ public class LoadRooms {
     //public BufferedImage northWall;
 
     ReadNorthWalls northWall = new ReadNorthWalls();
+    ReadEastWalls eastWall = new ReadEastWalls();
 
     public LoadRooms(Room room[][]) {
 
@@ -54,6 +55,7 @@ public class LoadRooms {
         for(int y = 0; y < MAP_Y_HEIGHT; y++){
         room[x][y].northWall = northWall.grid[y][x];
         }
+    }
 
         // room[0][0].northWall = 7;
         // room[0][1].northWall = 0;
@@ -64,16 +66,21 @@ public class LoadRooms {
         // room[2][0].northWall = 9;
         // room[2][1].northWall = 0;
         // room[2][2].northWall = 0;
-
-        room[0][0].eastWall = 0;
-        room[0][1].eastWall = 0;
-        room[0][2].eastWall = 0;
-        room[1][0].eastWall = 0;
-        room[1][1].eastWall = 0;
-        room[1][2].eastWall = 0;
-        room[2][0].eastWall = 1;
-        room[2][1].eastWall = 2;
-        room[2][2].eastWall = 3;
+        for(x = 0; x < MAP_X_WIDTH; x++){
+            room[x][y].eastWall = eastWall.grid[y][x];
+            for(int y = 0; y < MAP_Y_HEIGHT; y++){
+            room[x][y].eastWall = eastWall.grid[y][x];
+            }
+        }
+        // room[0][0].eastWall = 0;
+        // room[0][1].eastWall = 0;
+        // room[0][2].eastWall = 0;
+        // room[1][0].eastWall = 0;
+        // room[1][1].eastWall = 0;
+        // room[1][2].eastWall = 0;
+        // room[2][0].eastWall = 1;
+        // room[2][1].eastWall = 2;
+        // room[2][2].eastWall = 3;
 
         room[0][0].westWall = 6;
         room[0][1].westWall = 5;
@@ -120,4 +127,4 @@ public class LoadRooms {
     }
 
     }
-}
+
