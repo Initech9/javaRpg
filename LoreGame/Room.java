@@ -5,6 +5,13 @@ import javax.imageio.ImageIO;
 
 public class Room {
 
+// public int id;
+
+// public int mapX;
+// public int mapY;
+
+public boolean walkable = true;
+
     private BufferedImage[] images; // Array to store the images
     private BufferedImage[] imagesAngle; // Array to store the images
     private BufferedImage[] floorImage; // Array to store the images

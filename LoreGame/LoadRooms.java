@@ -8,12 +8,16 @@ import javax.swing.ImageIcon;
 
 public class LoadRooms {
 
+    MapReader map = new MapReader();
+
     Room room[][] = new Room[3][3];
     
 
     public BufferedImage northWall;
 
     public LoadRooms(Room room[][]){
+
+//map.printGrid("map.txt");
 
         room[0][0] = new Room();
         room[0][1] = new Room();
@@ -81,7 +85,9 @@ public class LoadRooms {
         room[2][2].floor = 9;
 
 
-    }
+room[1][1].walkable = false;
+
+}
 
 
 

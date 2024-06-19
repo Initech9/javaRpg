@@ -503,8 +503,21 @@ public class DrawGraphics extends JFrame implements Runnable {
     }
 
     public void movePlayer(int dx, int dy) {
-        int newX = playerX + dx;
-        int newY = playerY + dy;
+
+int newX = playerX + dx;
+int newY = playerY + dy;
+
+        if(this.room[newX][newY].walkable == true){
+
+        newX = playerX + dx;
+        newY = playerY + dy;
+
+        }else{
+            newX = playerX;
+            newY = playerY;
+
+        }
+
 
         // Check if the new position is within the room bounds
         if (newX >= 0 && newX < 3 && newY >= 0 && newY < 3) {
