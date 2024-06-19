@@ -22,6 +22,8 @@ public class LoadRooms {
 
     ReadNorthWalls northWall = new ReadNorthWalls();
     ReadEastWalls eastWall = new ReadEastWalls();
+    ReadSouthWalls southWall = new ReadSouthWalls();
+    ReadWestWalls westWall = new ReadWestWalls();
 
     public LoadRooms(Room room[][]) {
 
@@ -81,26 +83,38 @@ public class LoadRooms {
         // room[2][0].eastWall = 1;
         // room[2][1].eastWall = 2;
         // room[2][2].eastWall = 3;
+        for(x = 0; x < MAP_X_WIDTH; x++){
+            room[x][y].westWall = westWall.grid[y][x];
+            for(int y = 0; y < MAP_Y_HEIGHT; y++){
+            room[x][y].westWall = westWall.grid[y][x];
+            }
+        }
+        // room[0][0].westWall = 6;
+        // room[0][1].westWall = 5;
+        // room[0][2].westWall = 4;
+        // room[1][0].westWall = 0;
+        // room[1][1].westWall = 0;
+        // room[1][2].westWall = 0;
+        // room[2][0].westWall = 0;
+        // room[2][1].westWall = 0;
+        // room[2][2].westWall = 0;
 
-        room[0][0].westWall = 6;
-        room[0][1].westWall = 5;
-        room[0][2].westWall = 4;
-        room[1][0].westWall = 0;
-        room[1][1].westWall = 0;
-        room[1][2].westWall = 0;
-        room[2][0].westWall = 0;
-        room[2][1].westWall = 0;
-        room[2][2].westWall = 0;
-
-        room[0][0].southWall = 0;
-        room[0][1].southWall = 0;
-        room[0][2].southWall = 6;
-        room[1][0].southWall = 0;
-        room[1][1].southWall = 0;
-        room[1][2].southWall = 7;
-        room[2][0].southWall = 0;
-        room[2][1].southWall = 0;
-        room[2][2].southWall = 8;
+        for(x = 0; x < MAP_X_WIDTH; x++){
+            room[x][y].southWall = southWall.grid[y][x];
+            for(int y = 0; y < MAP_Y_HEIGHT; y++){
+            room[x][y].southWall = southWall.grid[y][x];
+            }
+        }
+        
+        // room[0][0].southWall = 0;
+        // room[0][1].southWall = 0;
+        // room[0][2].southWall = 6;
+        // room[1][0].southWall = 0;
+        // room[1][1].southWall = 0;
+        // room[1][2].southWall = 7;
+        // room[2][0].southWall = 0;
+        // room[2][1].southWall = 0;
+        // room[2][2].southWall = 8;
 
         room[0][0].floor = 9;
         room[0][1].floor = 9;
