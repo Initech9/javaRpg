@@ -181,8 +181,8 @@ public class DrawGraphics extends JFrame implements Runnable {
 
         // Set player starting position
 
-        this.numRows = 3;
-        this.numCols = 3;
+        this.numRows = LoadRooms.MAP_X_WIDTH;
+        this.numCols = LoadRooms.MAP_Y_HEIGHT;
 
         grid = new char[numRows][numCols];
         // ImageIcon icon = new ImageIcon("00N.png");
@@ -520,7 +520,7 @@ int newY = playerY + dy;
 
 
         // Check if the new position is within the room bounds
-        if (newX >= 0 && newX < 3 && newY >= 0 && newY < 3) {
+        if (newX >= 0 && newX < LoadRooms.MAP_X_WIDTH && newY >= 0 && newY < LoadRooms.MAP_Y_HEIGHT) {
             playerX = newX;
             playerY = newY;
 
