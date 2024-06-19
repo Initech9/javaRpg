@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+//Note MapReader is not used yet... you can probably DELETE it
 public class MapReader {
     
     public MapReader() {
