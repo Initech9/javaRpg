@@ -70,7 +70,7 @@ public class DrawGraphics extends JFrame implements Runnable {
 
     public Character character[] = new Character[3];
 
-    public Room room[][] = new Room[3][3];
+    public static Room room[][] = new Room[LoadRooms.MAP_X_WIDTH][LoadRooms.MAP_Y_HEIGHT];
 
     public BufferedImage currentNorthWall;
     public BufferedImage currentEastWall;

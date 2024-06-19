@@ -10,24 +10,50 @@ public class LoadRooms {
 
     MapReader map = new MapReader();
 
-    Room room[][] = new Room[3][3];
+int x;
+int y;
+
+public static int MAP_X_WIDTH = 4;
+public static int MAP_Y_HEIGHT = 4;
+
+    Room room[][] = new Room[MAP_X_WIDTH][MAP_Y_HEIGHT];
     
+
+ 
 
     public BufferedImage northWall;
 
     public LoadRooms(Room room[][]){
 
+   
+
+
+
+
 //map.printGrid("map.txt");
 
-        room[0][0] = new Room();
-        room[0][1] = new Room();
-        room[0][2] = new Room();
-        room[1][0] = new Room();
-        room[1][1] = new Room();
-        room[1][2] = new Room();
-        room[2][0] = new Room();
-        room[2][1] = new Room();
-        room[2][2] = new Room();
+        // room[0][0] = new Room();
+        // room[0][1] = new Room();
+        // room[0][2] = new Room();
+        // room[1][0] = new Room();
+        // room[1][1] = new Room();
+        // room[1][2] = new Room();
+        // room[2][0] = new Room();
+        // room[2][1] = new Room();
+        // room[2][2] = new Room();
+
+//this creates a new room on x, y and a collision detection if the Room is walkable
+        for(int x = 0; x < MAP_X_WIDTH; x++){
+            room[x][y] = new Room();
+            room[x][y].walkable = map.grid[x][y];
+            
+            for(int y = 0; y < MAP_Y_HEIGHT; y++){
+                room[x][y] = new Room();
+                room[x][y].walkable = map.grid[x][y];
+            }
+
+            }
+
 
 
 
@@ -85,7 +111,17 @@ public class LoadRooms {
         room[2][2].floor = 9;
 
 
-room[1][1].walkable = false;
+        //Collision detection, tells if a room is walkable 1 if yes, 0 if no
+        // for(int x = 0; x < MAP_X_WIDTH; x++){
+        //     room[x][y].walkable = map.grid[x][y];
+        //     for(int y = 0; y < MAP_Y_HEIGHT; y++){
+        //         room[x][y].walkable = map.grid[x][y];
+        //     }
+
+        //     }
+//room[1][1].walkable = false;
+
+//room[2][2].walkable = false;
 
 }
 

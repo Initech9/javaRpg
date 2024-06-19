@@ -3,14 +3,15 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-//Note MapReader is not used yet... you can probably DELETE it
+//Tells if a Room square is walkable. 0 if you cannot 1 if you can walk onto it.
 public class MapReader {
-    
+    public boolean[][] grid;
+
     public MapReader() {
-        String fileName = "map.txt"; // The file name or path to the file
+        String fileName = "mapWalkable.txt"; // The file name or path to the file
 
         try {
-            boolean[][] grid = readGridFromFile(fileName);
+            this.grid = readGridFromFile(fileName);
             printGrid(grid);
         } catch (IOException e) {
             e.printStackTrace();
