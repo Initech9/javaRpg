@@ -1,4 +1,4 @@
-User Story #1: Text file that has all the rooms that are walkable.
+(Completed) User Story #1: Text file that has all the rooms that are walkable.
 
 Description: Boolean map of walkable rooms
 Very simple, will only be a boolean x,y grid map that has a 1 or 0 
@@ -31,15 +31,22 @@ User Story #3: Items that can drop or picked up
 
 *******************************************
 User Story #4: Enemy that can attack
-
+Difficulty: Easy
 
 *******************************************
 User Story #5: Inventory that can store dropped Items
+Difficulty: Hard
+Prerequisite: Draggable items to inventory slot
 
 *******************************************
 User Story #6: Player model where you can equip inventory Items
 
+Difficulty: Hard
+Same task as Story #5
+
 *******************************************
 User Story #7: NPC Dialog item option
+
+Difficulty: Easy
 
 *******************************************
