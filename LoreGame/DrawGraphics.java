@@ -1,12 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -22,17 +17,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 
 // public LoadRooms loadRooms = new LoadRooms();
@@ -40,11 +28,47 @@ import javax.swing.JPanel;
 public class DrawGraphics extends JFrame implements Runnable {
 
     //private final JPanel mainPanel;
-    private JLabel imageLabel;
+
+    private Image sprite = new ImageIcon("gold.png").getImage();
+    private Image sprite2 = new ImageIcon("bartender.png").getImage();
+
+
+    public ImageButtonsPanel buttons9 = new ImageButtonsPanel();
+//ButtonPanel buttons = new ButtonPanel();
+
+    private Image[] sprites;
+    private int[][] spritePositions;
+    private boolean[] dragging;
+    //private int dragOffsetX, dragOffsetY;
+    private int draggedSpriteIndex = -1;
+
+   private JLabel imageLabel = new JLabel("jester.png");
+    private JLabel imageLabel2  = new JLabel("bard.png");
+    private int dragOffsetX, dragOffsetY;
+
     private Rectangle imageBounds;
     public File charTemp2;
 
+    private int spriteX = 300 , spriteY = 500;
+    private int spriteX2 = 300 , spriteY2 = 400;
+   // private boolean dragging = false;
+   
 
+//    private boolean button1Clicked = false;
+//    private boolean button2Clicked = false;
+//    private boolean button3Clicked = false;
+
+//    private JButton button1;
+//    private JButton button2;
+//    private JButton button3;
+
+//    private ImageIcon button1Icon1 = new ImageIcon("buttonON.png");
+//    private ImageIcon button1Icon2 = new ImageIcon("buttonOFF.png");
+//    private ImageIcon button2Icon1 = new ImageIcon("bard.png");
+//    private ImageIcon button2Icon2 = new ImageIcon("jester.png");
+//    private ImageIcon button3Icon1 = new ImageIcon("bartender.png");
+//    private ImageIcon button3Icon2 = new ImageIcon("bard.png");
+public boolean buttonON[] = {true, true};
 
 
     private static final int ROOM_SIZE = 800; // Room size in pixels
@@ -268,15 +292,27 @@ public class DrawGraphics extends JFrame implements Runnable {
 
 
 
+        //  SwingUtilities.invokeLater(() -> {
+        //     // JFrame frame = new JFrame("Clickable Image Buttons");
+        //     // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //     // frame.setSize(400, 400);
 
+        //     ButtonPanel buttonPanel = new ButtonPanel();
+        //     gamePanel.add(buttonPanel);
+        //     gamePanel.setVisible(true);
+           
+        // });
+       
 
-
+         
 
         // Set up the game panel
         gamePanel = new JPanel() {
 
+ 
 
 
+           
 
             @Override
             protected void paintComponent(Graphics g) {
@@ -292,6 +328,7 @@ public class DrawGraphics extends JFrame implements Runnable {
                 icon = new ImageIcon("sky.png");
                 image = icon.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+                
 
                 if (player.direction == 'e') {
                     currentNorthWall = room[playerY][playerX].getImage(room[playerY][playerX].westWall);
@@ -324,12 +361,46 @@ public class DrawGraphics extends JFrame implements Runnable {
                 image = room[playerY][playerX].gui;
                 g.drawImage(image, 0, 0, 800, 900, this);
 
+
+                //g.drawImage(sprite, spriteX, spriteY, this);
+                
+                     for (int i = 0; i < sprites.length; i++) {
+                g.drawImage(sprites[i], spritePositions[i][0], spritePositions[i][1], this);
             }
+                
+            // button1 = createImageButton(button1Icon1, 1);
+            // button2 = createImageButton(button2Icon1, 2);
+            // button3 = createImageButton(button3Icon1, 3);
+    
+
+            //g.drawImage((Image)button1.getIcon(),300,300, this);
+            // gamePanel.add(button1);
+            // gamePanel.add(button2);
+            // gamePanel.add(button3);
+
+
+      
+            }
+
+           
+            
+
+
         };
+
+       //Graphics g;
+        //paintComponent(     );
+        
         gamePanel.setPreferredSize(new Dimension(ROOM_SIZE, ROOM_SIZE));
+       
         add(gamePanel);
-
-
+        
+      //add(buttons9.button1);
+        gamePanel.add(buttons9);
+        
+      //buttons9.setVisible(true);
+        
+        //buttons = new ClickableImageButtons( gamePanel);
 
 
 
@@ -339,51 +410,42 @@ public class DrawGraphics extends JFrame implements Runnable {
 
         //gamePanel = panel;
         gamePanel.setLayout(null);
-        gamePanel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                imageLabel.setBounds(0,0, 800,900);
-                if (imageLabel != null && imageBounds.contains(e.getPoint())) {
-                    //imageLabel.setLocation(e.getPoint());
-                    imageLabel.setLocation((int)e.getPoint().getX()+600, (int)e.getPoint().getY());
-                    
-                    gamePanel.repaint();
-                }
 
-                
-            }
-        });
-
-        gamePanel.addMouseMotionListener(new MouseAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                if (imageLabel != null && imageBounds.contains(e.getPoint())) {
-                    imageLabel.setLocation((int)e.getPoint().getX()-400, (int)e.getPoint().getY()-300);
-                    //imageLabel.setLocation(e.getPoint());
-                    gamePanel.repaint();
-                }
-            }
-        });
+        
+        //imageBounds = new Rectangle(0, 0, 800, 600);
+       
 
         // getContentPane().add(gamePanel, BorderLayout.CENTER);
         // setSize(800, 600);
         // setLocationRelativeTo(null);
         // gamePanel.setPreferredSize(new Dimension(800, 600));
 
-
+//gamePanel.add(buttons);
+//add(buttons);
 
 
 
         //frame = new ImageMoveFrame(gamePanel);
         gamePanel.setVisible(true);
         loadFile();
+        mouseClickSprite(imageLabel2, gamePanel, imageBounds);
 
+
+        
+        
+//gamePanel.add(buttons);
+//gamePanel.setVisible(true);
         setFocusable(true);
         requestFocus();
 
+       // buttons = new ClickableImageButtons(gamePanel);
         
-
         // COLLAPSED KEY LISTENER
+
+
+
+
+
 
         addKeyListener(new KeyAdapter() {
             @Override
@@ -895,7 +957,7 @@ int newY = playerY + dy;
             int x = (800 - width) / 2; // center the image horizontally
             int y = (600 - height) / 2; // center the image vertically
             imageLabel = new JLabel(icon);
-            imageBounds = new Rectangle(0, 0, 800, 600);
+            imageBounds = new Rectangle(0, 0, 1400, 600);
             imageLabel.setBounds(imageBounds);
             gamePanel.add(imageLabel);
             pack();
@@ -905,11 +967,140 @@ int newY = playerY + dy;
     }
 
     public void loadFile() {
-        charTemp2 = new File("jester.png");
+        charTemp2 = new File("bard.png");
         loadImage(charTemp2);
 
     }
 
 
+    public void mouseClickSprite( JLabel imageLabel9, JPanel gamePanel9, Rectangle imageBounds9  ){
+       // private Image[] sprites;
+       // private int[][] spritePositions;
+       // private boolean[] dragging;
+       // private int dragOffsetX, dragOffsetY;
+        //private int draggedSpriteIndex = -1;
+
+        boolean draggableSprite[] = {false, false,true, true};
+        boolean isButton[] = {true, true, false, false};
+       //boolean isVisible[] = {true, false, false, false};
+
+    Image[] tempImage =  new Image[] {
+        new ImageIcon("buttonON.png").getImage(),
+        new ImageIcon("buttonOFF.png").getImage()
+    };
+
+       // public SpritePanel() {
+            // Load the sprite images
+            sprites = new Image[] {
+                new ImageIcon("buttonON.png").getImage(),
+                new ImageIcon("buttonOFF.png").getImage(),
+                new ImageIcon("sword.png").getImage(),
+                new ImageIcon("gold.png").getImage()
+            };
+    
+            // Initial positions for the sprites
+            spritePositions = new int[][] {
+                { 200, 250 },
+                { -200, -100 },
+                { 280, 500 },
+                { 300, 500 }
+            };
+    
+            // Dragging state for each sprite
+            dragging = new boolean[sprites.length];
+    
+            addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    for (int i = 0; i < sprites.length; i++) {
+                        if (isInsideSprite(e.getX(), e.getY(), i)  ) {
+                            
+                            if(draggableSprite[i]){
+                            dragging[i] = true;
+                            draggedSpriteIndex = i;
+                            dragOffsetX = e.getX() - spritePositions[i][0];
+                            dragOffsetY = e.getY() - spritePositions[i][1];
+                            }
+
+                            if(isButton[i] && buttonON[i] ){
+                                tempImage[0] = sprites[0];
+                                tempImage[1] = sprites[1];
+                                 sprites[0] = tempImage[1]; // this will change switch the button from ON to OFF
+                                 room[2][2].walkable = true; //door unlocked
+                             buttonON[i] = false;   
+                             }
+                                else if(isButton[i] && buttonON[i] == false ){
+     
+                                     sprites[0] = tempImage[0];
+                                     room[2][2].walkable = false; //door locked
+                                     buttonON[i] = true;
+                                 }
+                            
+                            //buttonON[i] = false;  
+                     
+
+                            break;
+                        }
+                    }
+                }
+    
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    if (draggedSpriteIndex != -1) {
+                        dragging[draggedSpriteIndex] = false;
+                        draggedSpriteIndex = -1;
+
+                        
+                    }
+                }
+            });
+    
+            addMouseMotionListener(new MouseAdapter() {
+                @Override
+                public void mouseDragged(MouseEvent e) {
+                    if (draggedSpriteIndex != -1) {
+                        spritePositions[draggedSpriteIndex][0] = e.getX() - dragOffsetX;
+                        spritePositions[draggedSpriteIndex][1] = e.getY() - dragOffsetY;
+                        repaint();
+                    }
+                }
+            });
+        }
+    
+        private boolean isInsideSprite(int x, int y, int index) {
+            return x >= spritePositions[index][0] && x <= spritePositions[index][0] + sprites[index].getWidth(this)
+                    && y >= spritePositions[index][1] && y <= spritePositions[index][1] + sprites[index].getHeight(this)+20;
+        }
+    
+        // @Override
+        // protected void paintComponent(Graphics g) {
+        //     super.paintComponent(g);
+        //     for (int i = 0; i < sprites.length; i++) {
+        //         g.drawImage(sprites[i], spritePositions[i][0], spritePositions[i][1], this);
+        //     }
+        // }
+    
+    
+
+
+    
+
+
+    private boolean isInsideSprite(int x, int y) {
+        return x >= spriteX && x <= spriteX + sprite.getWidth(this)
+                && y >= spriteY && y <= spriteY + sprite.getHeight(this);
+    }
+
+
+
+
+
+
 
 }
+
+
+
+
+
+

@@ -188,18 +188,20 @@ public class GridDungeonGame extends JFrame implements Runnable {
     public static void main(String[] args) {
         
         
-        MidiPlayer player = new MidiPlayer("opera.mid");
-        Thread thread = new Thread(player);
+        //MidiPlayer player = new MidiPlayer("opera.mid");
+        //Thread thread = new Thread(player);
         //thread.start();
-
+//ButtonPanel buttons = new ButtonPanel();
 
 
 
        DrawGraphics drawGraphics = new DrawGraphics();
        
+//drawGraphics.add(buttons);
+
        Thread thread2 = new Thread(drawGraphics);
         thread2.start();
-
+		//drawGraphics.add(buttons);
 
 
 

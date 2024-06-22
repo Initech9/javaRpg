@@ -15,7 +15,7 @@ Difficulty: Low
 
 
 *******************************************
-User Story #2: Button that opens a door to a grid location
+(Complete)User Story #2: Button that opens a door to a grid location
 Description:
 Button will be a small square that can be clicked on
 Priority: Highest #2
@@ -25,7 +25,7 @@ Difficulty: Moderate
 
 
 *******************************************
-User Story #3: Items that can drop or picked up
+(complete)User Story #3: Items that can drop or picked up
 
 
 
@@ -50,3 +50,20 @@ User Story #7: NPC Dialog item option
 Difficulty: Easy
 
 *******************************************
+User Story #8: Store to buy items
+
+Difficulty: Easy
+
+******************************************
+
+User Story #9: Animated door/gate that opens up
+
+Difficulty: Easy
+
+******************************************
+
+User Story #10: ranged item bow
+
+
+
+******************************************
